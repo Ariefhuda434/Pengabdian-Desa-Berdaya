@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galeri | Tim Pengmas Desa Berdaya</title>
+  <meta name="description" content="Dokumentasi visual kegiatan Tim Pengmas Desa Berdaya di Desa Patumbak, Deli Serdang.">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green-50: #f0faf0; --green-100: #d4f0d4; --green-200: #a8dfa8;
+      --green-400: #52b852; --green-500: #3a9c3a; --green-600: #2a7a2a;
+      --green-700: #1e5c1e; --green-800: #163d16;
+      --cream: #fdfcf8; --ink: #111a11; --ink-soft: #2c3c2c; --muted: #5a6e5a;
+      --border: rgba(42,122,42,0.12); --border-strong: rgba(42,122,42,0.25);
+      --radius-sm: 8px; --radius-md: 14px; --radius-lg: 24px;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06); --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
+      --shadow-lg: 0 12px 40px rgba(0,0,0,0.1);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--cream); color: var(--ink); line-height: 1.6; overflow-x: hidden; }
+
+    /* NAVBAR */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 2rem; height: 72px; display: flex; align-items: center; justify-content: space-between; background: rgba(253,252,248,0.88); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); transition: box-shadow 0.3s; }
+    nav.scrolled { box-shadow: var(--shadow-sm); }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-mark { width: 36px; height: 36px; border-radius: 10px; background: var(--green-600); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 18px; color: #fff; }
+    .nav-logo-text { font-size: 15px; font-weight: 600; color: var(--ink); line-height: 1.2; }
+    .nav-logo-sub { font-size: 11px; font-weight: 400; color: var(--muted); }
+    .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
+    .nav-links a { display: block; padding: 8px 16px; border-radius: var(--radius-sm); font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none; transition: all 0.2s; }
+    .nav-links a:hover { color: var(--ink); background: var(--green-50); }
+    .nav-links a.active { color: var(--green-600); background: var(--green-100); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 9px 20px; border-radius: var(--radius-md); background: var(--green-600); color: #fff; font-size: 14px; font-weight: 600; text-decoration: none; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--green-700); transform: translateY(-1px); }
+
+    /* PAGE HERO */
+    .page-hero {
+      padding-top: 72px;
+      background: radial-gradient(ellipse 80% 70% at 20% 100%, var(--green-50) 0%, transparent 65%), var(--cream);
+      border-bottom: 1px solid var(--border);
+    }
+    .page-hero-inner { padding: 64px 80px 56px; display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+    .page-eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px 6px 8px; background: var(--green-100); border-radius: 100px; font-size: 12px; font-weight: 600; color: var(--green-700); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 20px; }
+    .page-eyebrow-dot { width: 20px; height: 20px; border-radius: 50%; background: var(--green-500); display: flex; align-items: center; justify-content: center; }
+    .page-eyebrow-dot::after { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #fff; }
+    .page-title { font-family: var(--font-display); font-size: clamp(32px, 4vw, 52px); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 16px; }
+    .page-subtitle { font-size: 16px; font-weight: 300; color: var(--muted); max-width: 540px; line-height: 1.75; }
+    .page-hero-stat { text-align: right; }
+    .page-hero-stat-value { font-family: var(--font-display); font-size: 56px; font-weight: 700; color: var(--green-600); line-height: 1; }
+    .page-hero-stat-label { font-size: 14px; color: var(--muted); margin-top: 4px; }
+
+    /* FILTER */
+    .filter-bar { padding: 32px 80px 0; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; justify-content: flex-start; }
+    .filter-bar-label { font-size: 13px; font-weight: 500; color: var(--muted); margin-right: 8px; }
+    .filter-btn {
+      padding: 8px 20px; border-radius: 100px;
+      font-size: 13px; font-weight: 600; cursor: pointer;
+      background: #fff; color: var(--muted);
+      border: 1.5px solid var(--border-strong);
+      transition: all 0.2s; font-family: var(--font-body);
+    }
+    .filter-btn:hover { border-color: var(--green-400); color: var(--green-700); }
+    .filter-btn.filter-active { background: var(--green-600); color: #fff; border-color: var(--green-600); }
+
+    /* GALLERY GRID */
+    .gallery-section { padding: 40px 80px 96px; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+    .gallery-card {
+      background: #fff; border-radius: var(--radius-lg);
+      border: 1px solid var(--border); overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .gallery-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
+
+    .gallery-card-img-wrap { position: relative; overflow: hidden; aspect-ratio: 4/3; }
+    .gallery-card-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+    .gallery-card:hover .gallery-card-img-wrap img { transform: scale(1.06); }
+
+    .gallery-card-week {
+      position: absolute; top: 14px; left: 14px;
+      background: rgba(253,252,248,0.9); backdrop-filter: blur(8px);
+      font-size: 11px; font-weight: 700; color: var(--green-700);
+      padding: 4px 12px; border-radius: 100px;
+      letter-spacing: 0.06em; text-transform: uppercase;
+    }
+
+    .gallery-card-body { padding: 20px 24px 24px; }
+    .gallery-card-title { font-size: 15px; font-weight: 600; color: var(--ink); line-height: 1.4; }
+
+    /* EMPTY STATE */
+    .gallery-empty { display: none; grid-column: 1/-1; padding: 80px 0; text-align: center; }
+    .gallery-empty p { color: var(--muted); font-size: 16px; }
+
+    /* FOOTER */
+    footer { background: var(--ink-soft); color: rgba(255,255,255,0.8); padding: 60px 80px 40px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 48px; }
+    .footer-logo-wrap { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+    .footer-logo-mark { width: 36px; height: 36px; border-radius: 10px; background: var(--green-600); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 18px; color: #fff; }
+    .footer-brand-name { font-size: 15px; font-weight: 600; color: #fff; }
+    .footer-brand-desc { font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.5); max-width: 280px; }
+    .footer-heading { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 10px; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--green-400); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.35); }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-up { animation: fadeUp 0.6s ease both; }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+
+    @media (max-width: 1024px) {
+      .page-hero-inner, .filter-bar, .gallery-section { padding-left: 40px; padding-right: 40px; }
+      .gallery-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+    @media (max-width: 640px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .page-hero-inner, .filter-bar, .gallery-section { padding-left: 20px; padding-right: 20px; }
+      .gallery-grid { grid-template-columns: 1fr; }
+      .page-hero-stat { display: none; }
+      footer { padding: 48px 20px 32px; }
+      .footer-bottom { flex-direction: column; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-mark">D</div>
+      <div>
+        <div class="nav-logo-text">Tim Pengmas</div>
+        <div class="nav-logo-sub">Desa Berdaya</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="program.html">Program</a></li>
+      <li><a href="tim.html">Tim</a></li>
+      <li><a href="galeri.html" class="active">Galeri</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="tentang.html">Tentang</a></li>
+    </ul>
+    <a class="nav-cta" href="tentang.html">Kontak</a>
+  </nav>
+
+  <main>
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <div class="fade-up">
+          <div class="page-eyebrow">
+            <div class="page-eyebrow-dot"></div>
+            Dokumentasi Visual
+          </div>
+          <h1 class="page-title">Galeri<br><em style="font-style:italic; color:var(--green-600);">Kegiatan Lapangan</em></h1>
+          <p class="page-subtitle">Kumpulan foto dokumentasi kegiatan Tim Pengmas "Desa Berdaya" selama pelaksanaan program di Desa Patumbak, Deli Serdang.</p>
+        </div>
+        <div class="page-hero-stat fade-up delay-1">
+          <div class="page-hero-stat-value">12+</div>
+          <div class="page-hero-stat-label">Foto Kegiatan</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FILTER BAR -->
+    <div class="filter-bar fade-up delay-2">
+      <span class="filter-bar-label">Filter:</span>
+      <button data-filter="semua" class="filter-btn filter-active">Semua</button>
+      <button data-filter="minggu-1" class="filter-btn">Minggu 1</button>
+      <button data-filter="minggu-2" class="filter-btn">Minggu 2</button>
+      <button data-filter="minggu-3" class="filter-btn">Minggu 3</button>
+      <button data-filter="minggu-4" class="filter-btn">Minggu 4</button>
+    </div>
+
+    <!-- GALLERY GRID -->
+    <section class="gallery-section">
+      <div class="gallery-grid">
+
+        <article class="gallery-card" data-week="minggu-1">
+          <div class="gallery-card-img-wrap">
+            <img src="assets/img/galeri/minggu-1/kegiatan-1.jpg" alt="Observasi awal bersama masyarakat" onerror="this.src='https://placehold.co/700x500/d4f0d4/2a7a2a?text=Minggu+1+%E2%80%A2+Foto+1'">
+            <span class="gallery-card-week">Minggu 1</span>
+          </div>
+          <div class="gallery-card-body">
+            <p class="gallery-card-title">Observasi awal bersama masyarakat</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-week="minggu-1">
+          <div class="gallery-card-img-wrap">
+            <img src="assets/img/galeri/minggu-1/kegiatan-2.jpg" alt="Koordinasi dengan perangkat desa" onerror="this.src='https://placehold.co/700x500/d4f0d4/2a7a2a?text=Minggu+1+%E2%80%A2+Foto+2'">
+            <span class="gallery-card-week">Minggu 1</span>
+          </div>
+          <div class="gallery-card-body">
+            <p class="gallery-card-title">Koordinasi dengan perangkat desa</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-week="minggu-1">
+          <div class="gallery-card-img-wrap">
+            <img src="assets/img/galeri/minggu-1/kegiatan-3.jpg" alt="Pemetaan kebutuhan lapangan" onerror="this.src='https://placehold.co/700x500/d4f0d4/2a7a2a?text=Minggu+1+%E2%80%A2+Foto+3'">
+            <span class="gallery-card-week">Minggu 1</span>
+          </div>
+          <div class="gallery-card-body">
+            <p class="gallery-card-title">Pemetaan kebutuhan lapangan</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-week="minggu-2">
+          <div class="gallery-card-img-wrap">
+            <img src="assets/img/galeri/minggu-2/kegiatan-1.jpg" alt="Penyuluhan gizi keluarga" onerror="this.src='https://placehold.co/700x500/a8dfa8/1e5c1e?text=Minggu+2+%E2%80%A2+Foto+1'">
+            <span class="gallery-card-week">Minggu 2</span>
+          </div>
+          <div class="gallery-card-body">
+            <p class="gallery-card-title">Penyuluhan gizi keluarga</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-week="minggu-2">
+          <div class="gallery-card-img-wrap">
+            <img src="assets/img/galeri/minggu-2/kegiatan-2.jpg" alt="Edukasi PHBS" onerror="this.src='https://placehold.co/700x500/a8dfa8/1e5c1e?text=Minggu+2+%E2%80%A2+Foto+2'">
+            <span class="gallery-card-week">Minggu 2</span>
+          </div>
+          <div class="gallery-card-body">
+            <p class="gallery-card-title">Edukasi PHBS</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-week="minggu-2">
+          <div class="gallery-card-img-wrap">
+            <img src="assets/img/galeri/minggu-2/kegiatan-3.jpg" alt="Diskusi kelompok masyarakat" onerror="this.src='https://placehold.co/700x500/a8dfa8/1e5c1e?text=Minggu+2+%E2%80%A2+Foto+3'">
+            <span class="gallery-card-week">Minggu 2</span>
+          </div>
+          <div class="gallery-card-body">
+            <p class="gallery-card-title">Diskusi kelompok masyarakat</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-week="minggu-3">
+          <div class="gallery-card-img-wrap">
+            <img src="assets/img/galeri/minggu-3/kegiatan-1.jpg" alt="Pelatihan UMKM warga" onerror="this.src='https://placehold.co/700x500/52b852/f0faf0?text=Minggu+3+%E2%80%A2+Foto+1'">
+            <span class="gallery-card-week">Minggu 3</span>
+          </div>
+          <div class="gallery-card-body">
+            <p class="gallery-card-title">Pelatihan UMKM warga</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-week="minggu-3">
+          <div class="gallery-card-img-wrap">
+            <img src="assets/img/galeri/minggu-3/kegiatan-2.jpg" alt="Kegiatan posyandu" onerror="this.src='https://placehold.co/700x500/52b852/f0faf0?text=Minggu+3+%E2%80%A2+Foto+2'">
+            <span class="gallery-card-week">Minggu 3</span>
+          </div>
+          <div class="gallery-card-body">
+            <p class="gallery-card-title">Kegiatan posyandu</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-week="minggu-3">
+          <div class="gallery-card-img-wrap">
+            <img src="assets/img/galeri/minggu-3/kegiatan-3.jpg" alt="Pendampingan kader" onerror="this.src='https://placehold.co/700x500/52b852/f0faf0?text=Minggu+3+%E2%80%A2+Foto+3'">
+            <span class="gallery-card-week">Minggu 3</span>
+          </div>
+          <div class="gallery-card-body">
+            <p class="gallery-card-title">Pendampingan kader</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-week="minggu-4">
+          <div class="gallery-card-img-wrap">
+            <img src="assets/img/galeri/minggu-4/kegiatan-1.jpg" alt="Evaluasi program" onerror="this.src='https://placehold.co/700x500/3a9c3a/f0faf0?text=Minggu+4+%E2%80%A2+Foto+1'">
+            <span class="gallery-card-week">Minggu 4</span>
+          </div>
+          <div class="gallery-card-body">
+            <p class="gallery-card-title">Evaluasi program</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-week="minggu-4">
+          <div class="gallery-card-img-wrap">
+            <img src="assets/img/galeri/minggu-4/kegiatan-2.jpg" alt="Penutupan kegiatan" onerror="this.src='https://placehold.co/700x500/3a9c3a/f0faf0?text=Minggu+4+%E2%80%A2+Foto+2'">
+            <span class="gallery-card-week">Minggu 4</span>
+          </div>
+          <div class="gallery-card-body">
+            <p class="gallery-card-title">Penutupan kegiatan</p>
+          </div>
+        </article>
+
+        <article class="gallery-card" data-week="minggu-4">
+          <div class="gallery-card-img-wrap">
+            <img src="assets/img/galeri/minggu-4/kegiatan-3.jpg" alt="Dokumentasi akhir tim" onerror="this.src='https://placehold.co/700x500/3a9c3a/f0faf0?text=Minggu+4+%E2%80%A2+Foto+3'">
+            <span class="gallery-card-week">Minggu 4</span>
+          </div>
+          <div class="gallery-card-body">
+            <p class="gallery-card-title">Dokumentasi akhir tim</p>
+          </div>
+        </article>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo-wrap">
+          <div class="footer-logo-mark">D</div>
+          <div class="footer-brand-name">Tim Pengmas Desa Berdaya</div>
+        </div>
+        <p class="footer-brand-desc">Program Pengabdian Masyarakat mahasiswa Kesehatan Masyarakat USU di Desa Patumbak, Deli Serdang, 2025.</p>
+      </div>
+      <div>
+        <div class="footer-heading">Navigasi</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="program.html">Program</a></li>
+          <li><a href="tim.html">Tim</a></li>
+          <li><a href="galeri.html">Galeri</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="tentang.html">Tentang</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Informasi</div>
+        <ul class="footer-links">
+          <li><a href="#">Universitas Sumatera Utara</a></li>
+          <li><a href="#">Prodi Kesehatan Masyarakat</a></li>
+          <li><a href="#">Desa Patumbak</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2025 Tim Pengmas Desa Berdaya · Universitas Sumatera Utara</p>
+      <p class="footer-copy">Kesehatan Masyarakat FKM USU</p>
+    </div>
+  </footer>
+
+  <script>
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 20); });
+
+    document.addEventListener("DOMContentLoaded", () => {
+      const filterButtons = document.querySelectorAll("[data-filter]");
+      const galleryItems = document.querySelectorAll("[data-week]");
+
+      filterButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          const selected = button.getAttribute("data-filter");
+          filterButtons.forEach(btn => btn.classList.remove("filter-active"));
+          button.classList.add("filter-active");
+          galleryItems.forEach((item) => {
+            const week = item.getAttribute("data-week");
+            const shouldShow = selected === "semua" || selected === week;
+            if (shouldShow) {
+              item.style.display = "";
+              item.style.animation = "none";
+              item.offsetHeight;
+              item.style.animation = "fadeUp 0.4s ease both";
+            } else {
+              item.style.display = "none";
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "pengmas-desa-berdaya",
+  "version": "1.0.0",
+  "description": "Website dokumentasi Pengabdian Masyarakat Tim Desa Berdaya - USU",
+  "scripts": {
+    "dev": "npx @tailwindcss/cli -i ./src/input.css -o ./assets/css/output.css --watch",
+    "build": "npx @tailwindcss/cli -i ./src/input.css -o ./assets/css/output.css",
+    "serve": "python3 -m http.server 5500"
+  },
+  "dependencies": {
+    "@tailwindcss/cli": "^4.1.0",
+    "tailwindcss": "^4.1.0"
+  }
+}
