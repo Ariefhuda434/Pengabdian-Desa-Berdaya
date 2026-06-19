@@ -3,130 +3,377 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Program Kegiatan | Tim Pengmas Desa Berdaya</title>
-  <meta name="description" content="Website dokumentasi kegiatan Pengabdian Masyarakat Tim Desa Berdaya, Program Studi Kesehatan Masyarakat Universitas Sumatera Utara di Desa Patumbak, Deli Serdang.">
+  <meta name="description" content="Rangkaian kegiatan pengabdian masyarakat Tim Desa Berdaya di Desa Patumbak, Deli Serdang.">
 
-  <link rel="stylesheet" href="assets/css/output.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green-50: #f0faf0; --green-100: #d4f0d4; --green-200: #a8dfa8;
+      --green-400: #52b852; --green-500: #3a9c3a; --green-600: #2a7a2a;
+      --green-700: #1e5c1e; --green-800: #163d16;
+      --cream: #fdfcf8; --ink: #111a11; --ink-soft: #2c3c2c; --muted: #5a6e5a;
+      --border: rgba(42,122,42,0.12); --border-strong: rgba(42,122,42,0.25);
+      --radius-sm: 8px; --radius-md: 14px; --radius-lg: 24px;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06); --shadow-md: 0 4px 16px rgba(0,0,0,0.08); --shadow-lg: 0 12px 40px rgba(0,0,0,0.1);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--cream); color: var(--ink); line-height: 1.6; overflow-x: hidden; }
+
+    /* NAVBAR */
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 2rem; height: 72px; display: flex; align-items: center; justify-content: space-between; background: rgba(253,252,248,0.88); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); transition: box-shadow 0.3s; }
+    nav.scrolled { box-shadow: var(--shadow-sm); }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-mark { width: 36px; height: 36px; border-radius: 10px; object-fit: cover; }
+    .nav-logo-text { font-size: 15px; font-weight: 600; color: var(--ink); line-height: 1.2; }
+    .nav-logo-sub { font-size: 11px; font-weight: 400; color: var(--muted); }
+    .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
+    .nav-links a { display: block; padding: 8px 16px; border-radius: var(--radius-sm); font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none; transition: all 0.2s; }
+    .nav-links a:hover { color: var(--ink); background: var(--green-50); }
+    .nav-links a.active { color: var(--green-600); background: var(--green-100); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 9px 20px; border-radius: var(--radius-md); background: var(--green-600); color: #fff; font-size: 14px; font-weight: 600; text-decoration: none; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--green-700); transform: translateY(-1px); }
+
+    /* PAGE HERO */
+    .page-hero { padding-top: 72px; background: radial-gradient(ellipse 80% 70% at 20% 100%, var(--green-50) 0%, transparent 65%), var(--cream); border-bottom: 1px solid var(--border); }
+    .page-hero-inner { padding: 64px 80px 56px; }
+    .page-eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px 6px 8px; background: var(--green-100); border-radius: 100px; font-size: 12px; font-weight: 600; color: var(--green-700); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 20px; }
+    .page-eyebrow-dot { width: 20px; height: 20px; border-radius: 50%; background: var(--green-500); display: flex; align-items: center; justify-content: center; }
+    .page-eyebrow-dot::after { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #fff; }
+    .page-title { font-family: var(--font-display); font-size: clamp(32px, 4vw, 52px); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 16px; }
+    .page-subtitle { font-size: 16px; font-weight: 300; color: var(--muted); max-width: 600px; line-height: 1.75; }
+
+    /* SECTION */
+    .section { padding: 80px 80px; }
+    .section-label { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green-600); margin-bottom: 16px; }
+    .section-label::before { content: ''; display: block; width: 20px; height: 2px; background: var(--green-500); }
+    .section-title { font-family: var(--font-display); font-size: clamp(26px, 3vw, 40px); font-weight: 700; line-height: 1.2; color: var(--ink); margin-bottom: 48px; }
+
+    /* PROGRAM GRID */
+    .programs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+
+    .program-card {
+      background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg);
+      padding: 32px; position: relative; overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .program-card::after {
+      content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+      height: 3px; background: var(--green-500);
+      transform: scaleX(0); transform-origin: left; transition: transform 0.3s;
+    }
+    .program-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .program-card:hover::after { transform: scaleX(1); }
+
+    .program-num { font-family: var(--font-display); font-size: 72px; font-weight: 800; color: var(--green-100); line-height: 1; margin-bottom: 12px; }
+    .program-icon { width: 52px; height: 52px; border-radius: var(--radius-md); background: var(--green-100); display: flex; align-items: center; justify-content: center; margin-bottom: 20px; }
+    .program-icon svg { width: 24px; height: 24px; stroke: var(--green-600); }
+    .program-title { font-size: 19px; font-weight: 700; color: var(--ink); margin-bottom: 10px; }
+    .program-desc { font-size: 14px; color: var(--muted); line-height: 1.75; font-weight: 300; margin-bottom: 20px; }
+    .program-target { background: var(--green-50); border-radius: var(--radius-md); padding: 14px 16px; }
+    .program-target-label { font-size: 11px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--green-700); margin-bottom: 4px; }
+    .program-target-value { font-size: 14px; font-weight: 500; color: var(--ink); }
+
+    /* TIMELINE */
+    .timeline-section { background: var(--green-50); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+
+    .timeline-item {
+      display: grid; grid-template-columns: 200px 1px 1fr;
+      gap: 0 40px; align-items: stretch;
+    }
+    .timeline-item:not(:last-child) { }
+
+    .timeline-week {
+      padding: 32px 0; text-align: right;
+    }
+    .timeline-week-num { font-family: var(--font-display); font-size: 13px; font-weight: 700; color: var(--green-600); letter-spacing: 0.04em; text-transform: uppercase; }
+    .timeline-week-label { font-size: 15px; font-weight: 600; color: var(--ink); margin-top: 4px; }
+
+    .timeline-spine { display: flex; flex-direction: column; align-items: center; }
+    .timeline-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--green-500); border: 3px solid var(--cream); box-shadow: 0 0 0 2px var(--green-400); margin-top: 36px; flex-shrink: 0; }
+    .timeline-line { flex: 1; width: 2px; background: var(--border-strong); }
+    .timeline-item:last-child .timeline-line { display: none; }
+
+    .timeline-content { padding: 28px 0; }
+    .timeline-title { font-size: 16px; font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+    .timeline-desc { font-size: 14px; color: var(--muted); line-height: 1.75; font-weight: 300; }
+
+    /* FOOTER */
+    footer { background: var(--ink-soft); color: rgba(255,255,255,0.8); padding: 60px 80px 40px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 48px; }
+    .footer-logo-wrap { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+    .footer-logo-mark { width: 36px; height: 36px; border-radius: 10px; object-fit: cover; }
+    .footer-brand-name { font-size: 15px; font-weight: 600; color: #fff; }
+    .footer-brand-desc { font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.5); max-width: 280px; }
+    .footer-heading { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 10px; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--green-400); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.35); }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-up { animation: fadeUp 0.7s ease both; }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+
+    @media (max-width: 1024px) {
+      .page-hero-inner, .section { padding-left: 40px; padding-right: 40px; }
+      .programs-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .timeline-item { grid-template-columns: 140px 1px 1fr; gap: 0 24px; }
+    }
+    @media (max-width: 640px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .page-hero-inner, .section { padding-left: 20px; padding-right: 20px; }
+      .programs-grid { grid-template-columns: 1fr; }
+      .timeline-item { grid-template-columns: 1fr; }
+      .timeline-spine { display: none; }
+      .timeline-week { text-align: left; padding: 24px 0 8px; }
+      .timeline-content { padding: 0 0 24px; }
+      footer { padding: 48px 20px 32px; }
+      .footer-bottom { flex-direction: column; gap: 8px; }
+    }
+  </style>
 </head>
+<body>
 
-<body class="bg-gray-50 text-gray-800">
-  <app-navbar active="program"></app-navbar>
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo">
+      <img class="nav-logo-mark" src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Logo_Universitas_Sumatera_Utara.svg" alt="USU">
+      <div>
+        <div class="nav-logo-text">Desa Berdaya</div>
+        <div class="nav-logo-sub">Pengmas USU 2026</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="program.html" class="active">Program</a></li>
 
+      <li><a href="galeri.html">Galeri</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="tentang.html">Tentang</a></li>
+    </ul>
+    <a href="galeri.html" class="nav-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      Lihat Galeri
+    </a>
+  </nav>
 
   <main>
-    <section class="section-padding bg-gradient-to-br from-primary-50 via-white to-green-50">
-      <div class="container-custom">
-        <span class="badge-soft">Program Kegiatan</span>
-        <h1 class="page-title mt-5">Rangkaian kegiatan pengabdian masyarakat</h1>
-        <p class="page-subtitle">
-          Program dirancang untuk menjawab kebutuhan masyarakat Desa Patumbak melalui edukasi kesehatan, penguatan kapasitas warga, dan pendampingan berbasis komunitas.
-        </p>
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <div class="page-eyebrow fade-up">
+          <div class="page-eyebrow-dot"></div>
+          Program Kegiatan
+        </div>
+        <h1 class="page-title fade-up delay-1">Rangkaian kegiatan<br><em style="font-style:italic;color:var(--green-600);">pengabdian masyarakat</em></h1>
+        <p class="page-subtitle fade-up delay-2">Program dirancang untuk menjawab kebutuhan masyarakat Desa Patumbak melalui edukasi kesehatan, penguatan kapasitas, dan pendampingan berbasis komunitas.</p>
       </div>
     </section>
 
-    <section class="section-padding bg-white">
-      <div class="container-custom">
-        <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-          
-          <article class="card-soft">
-            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-50 text-lg font-extrabold text-primary">1</div>
-            <h3 class="text-xl font-bold text-gray-950">Penyuluhan Gizi</h3>
-            <p class="mt-3 leading-7 text-gray-600">Meningkatkan pemahaman masyarakat tentang pola makan sehat, pemenuhan gizi keluarga, dan pencegahan masalah gizi.</p>
-            <div class="mt-5 rounded-2xl bg-gray-50 p-4">
-              <p class="text-xs font-semibold uppercase tracking-wide text-gray-500">Sasaran</p>
-              <p class="mt-1 text-sm font-medium text-gray-800">Ibu rumah tangga, remaja, dan keluarga</p>
-            </div>
-          </article>
+    <!-- PROGRAMS -->
+    <section class="section">
+      <div class="section-label">Program Unggulan</div>
+      <h2 class="section-title">6 program utama kegiatan</h2>
 
-          <article class="card-soft">
-            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-50 text-lg font-extrabold text-primary">2</div>
-            <h3 class="text-xl font-bold text-gray-950">Pelatihan UMKM</h3>
-            <p class="mt-3 leading-7 text-gray-600">Mendorong kapasitas ekonomi masyarakat melalui pelatihan pengelolaan usaha, pengemasan produk, dan pemasaran dasar.</p>
-            <div class="mt-5 rounded-2xl bg-gray-50 p-4">
-              <p class="text-xs font-semibold uppercase tracking-wide text-gray-500">Sasaran</p>
-              <p class="mt-1 text-sm font-medium text-gray-800">Pelaku UMKM dan kelompok masyarakat</p>
-            </div>
-          </article>
+      <div class="programs-grid">
+        <article class="program-card">
+          <div class="program-num">01</div>
+          <div class="program-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="program-title">Penyuluhan Gizi</h3>
+          <p class="program-desc">Meningkatkan pemahaman masyarakat tentang pola makan sehat, pemenuhan gizi keluarga, dan pencegahan masalah gizi.</p>
+          <div class="program-target">
+            <p class="program-target-label">Sasaran</p>
+            <p class="program-target-value">Ibu rumah tangga, remaja, dan keluarga</p>
+          </div>
+        </article>
 
-          <article class="card-soft">
-            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-50 text-lg font-extrabold text-primary">3</div>
-            <h3 class="text-xl font-bold text-gray-950">Posyandu</h3>
-            <p class="mt-3 leading-7 text-gray-600">Mendukung pelayanan kesehatan dasar berbasis masyarakat melalui edukasi dan pendampingan kegiatan posyandu.</p>
-            <div class="mt-5 rounded-2xl bg-gray-50 p-4">
-              <p class="text-xs font-semibold uppercase tracking-wide text-gray-500">Sasaran</p>
-              <p class="mt-1 text-sm font-medium text-gray-800">Balita, ibu, dan kader posyandu</p>
-            </div>
-          </article>
+        <article class="program-card">
+          <div class="program-num">02</div>
+          <div class="program-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></svg>
+          </div>
+          <h3 class="program-title">Pelatihan UMKM</h3>
+          <p class="program-desc">Mendorong kapasitas ekonomi melalui pelatihan pengelolaan usaha, pengemasan produk, dan pemasaran dasar.</p>
+          <div class="program-target">
+            <p class="program-target-label">Sasaran</p>
+            <p class="program-target-value">Pelaku UMKM dan kelompok masyarakat</p>
+          </div>
+        </article>
 
-          <article class="card-soft">
-            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-50 text-lg font-extrabold text-primary">4</div>
-            <h3 class="text-xl font-bold text-gray-950">Edukasi PHBS</h3>
-            <p class="mt-3 leading-7 text-gray-600">Menguatkan perilaku hidup bersih dan sehat melalui edukasi kebersihan diri, lingkungan, dan pencegahan penyakit.</p>
-            <div class="mt-5 rounded-2xl bg-gray-50 p-4">
-              <p class="text-xs font-semibold uppercase tracking-wide text-gray-500">Sasaran</p>
-              <p class="mt-1 text-sm font-medium text-gray-800">Masyarakat umum</p>
-            </div>
-          </article>
+        <article class="program-card">
+          <div class="program-num">03</div>
+          <div class="program-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>
+          </div>
+          <h3 class="program-title">Posyandu</h3>
+          <p class="program-desc">Mendukung pelayanan kesehatan dasar berbasis masyarakat melalui edukasi dan pendampingan kegiatan posyandu.</p>
+          <div class="program-target">
+            <p class="program-target-label">Sasaran</p>
+            <p class="program-target-value">Balita, ibu, dan kader posyandu</p>
+          </div>
+        </article>
 
-          <article class="card-soft">
-            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-50 text-lg font-extrabold text-primary">5</div>
-            <h3 class="text-xl font-bold text-gray-950">Pemeriksaan Kesehatan Dasar</h3>
-            <p class="mt-3 leading-7 text-gray-600">Memberikan layanan skrining sederhana untuk meningkatkan kesadaran masyarakat terhadap kondisi kesehatan.</p>
-            <div class="mt-5 rounded-2xl bg-gray-50 p-4">
-              <p class="text-xs font-semibold uppercase tracking-wide text-gray-500">Sasaran</p>
-              <p class="mt-1 text-sm font-medium text-gray-800">Warga Desa Patumbak</p>
-            </div>
-          </article>
+        <article class="program-card">
+          <div class="program-num">04</div>
+          <div class="program-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+          </div>
+          <h3 class="program-title">Edukasi PHBS</h3>
+          <p class="program-desc">Menguatkan perilaku hidup bersih dan sehat melalui edukasi kebersihan diri, lingkungan, dan pencegahan penyakit.</p>
+          <div class="program-target">
+            <p class="program-target-label">Sasaran</p>
+            <p class="program-target-value">Masyarakat umum</p>
+          </div>
+        </article>
 
-          <article class="card-soft">
-            <div class="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary-50 text-lg font-extrabold text-primary">6</div>
-            <h3 class="text-xl font-bold text-gray-950">Evaluasi dan Penutupan</h3>
-            <p class="mt-3 leading-7 text-gray-600">Mengukur capaian kegiatan dan menyusun refleksi bersama masyarakat serta perangkat desa.</p>
-            <div class="mt-5 rounded-2xl bg-gray-50 p-4">
-              <p class="text-xs font-semibold uppercase tracking-wide text-gray-500">Sasaran</p>
-              <p class="mt-1 text-sm font-medium text-gray-800">Tim, mitra desa, dan masyarakat</p>
-            </div>
-          </article>
+        <article class="program-card">
+          <div class="program-num">05</div>
+          <div class="program-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+          </div>
+          <h3 class="program-title">Pemeriksaan Kesehatan Dasar</h3>
+          <p class="program-desc">Memberikan layanan skrining sederhana untuk meningkatkan kesadaran masyarakat terhadap kondisi kesehatan.</p>
+          <div class="program-target">
+            <p class="program-target-label">Sasaran</p>
+            <p class="program-target-value">Warga Desa Patumbak</p>
+          </div>
+        </article>
 
-        </div>
+        <article class="program-card">
+          <div class="program-num">06</div>
+          <div class="program-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <h3 class="program-title">Evaluasi dan Penutupan</h3>
+          <p class="program-desc">Mengukur capaian kegiatan dan menyusun refleksi bersama masyarakat serta perangkat desa.</p>
+          <div class="program-target">
+            <p class="program-target-label">Sasaran</p>
+            <p class="program-target-value">Tim, mitra desa, dan masyarakat</p>
+          </div>
+        </article>
       </div>
     </section>
 
-    <section class="section-padding bg-gray-50">
-      <div class="container-custom">
-        <div class="mb-10">
-          <span class="badge-soft">Timeline</span>
-          <h2 class="mt-5 text-3xl font-extrabold text-gray-950 md:text-4xl">Alur pelaksanaan kegiatan</h2>
+    <!-- TIMELINE -->
+    <section class="section timeline-section">
+      <div class="section-label">Timeline</div>
+      <h2 class="section-title">Alur pelaksanaan kegiatan</h2>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-week">
+            <div class="timeline-week-num">Minggu 1</div>
+            <div class="timeline-week-label">Observasi & Koordinasi</div>
+          </div>
+          <div class="timeline-spine">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <p class="timeline-title">Pengenalan wilayah dan pemetaan</p>
+            <p class="timeline-desc">Pengenalan wilayah, koordinasi dengan perangkat desa, pemetaan kebutuhan masyarakat, dan finalisasi rencana kegiatan.</p>
+          </div>
         </div>
 
-        <div class="space-y-6">
-          <div class="rounded-3xl bg-white p-6 shadow-sm">
-            <p class="font-bold text-primary">Minggu 1 — Observasi dan Koordinasi</p>
-            <p class="mt-2 leading-7 text-gray-600">Pengenalan wilayah, koordinasi dengan perangkat desa, pemetaan kebutuhan masyarakat, dan finalisasi rencana kegiatan.</p>
+        <div class="timeline-item">
+          <div class="timeline-week">
+            <div class="timeline-week-num">Minggu 2</div>
+            <div class="timeline-week-label">Edukasi & Penyuluhan</div>
           </div>
-          <div class="rounded-3xl bg-white p-6 shadow-sm">
-            <p class="font-bold text-primary">Minggu 2 — Edukasi dan Penyuluhan</p>
-            <p class="mt-2 leading-7 text-gray-600">Pelaksanaan penyuluhan gizi, edukasi PHBS, serta kegiatan promosi kesehatan berbasis masyarakat.</p>
+          <div class="timeline-spine">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
           </div>
-          <div class="rounded-3xl bg-white p-6 shadow-sm">
-            <p class="font-bold text-primary">Minggu 3 — Pelatihan dan Pendampingan</p>
-            <p class="mt-2 leading-7 text-gray-600">Pelatihan UMKM, pendampingan warga, dan dukungan kegiatan posyandu bersama kader setempat.</p>
+          <div class="timeline-content">
+            <p class="timeline-title">Penyuluhan gizi dan PHBS</p>
+            <p class="timeline-desc">Pelaksanaan penyuluhan gizi, edukasi PHBS, serta kegiatan promosi kesehatan berbasis masyarakat.</p>
           </div>
-          <div class="rounded-3xl bg-white p-6 shadow-sm">
-            <p class="font-bold text-primary">Minggu 4 — Evaluasi dan Penutupan</p>
-            <p class="mt-2 leading-7 text-gray-600">Evaluasi capaian kegiatan, dokumentasi akhir, refleksi program, dan penyusunan laporan kegiatan.</p>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-week">
+            <div class="timeline-week-num">Minggu 3</div>
+            <div class="timeline-week-label">Pelatihan & Pendampingan</div>
+          </div>
+          <div class="timeline-spine">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <p class="timeline-title">Pelatihan UMKM dan posyandu</p>
+            <p class="timeline-desc">Pelatihan UMKM, pendampingan warga, dan dukungan kegiatan posyandu bersama kader setempat.</p>
+          </div>
+        </div>
+
+        <div class="timeline-item">
+          <div class="timeline-week">
+            <div class="timeline-week-num">Minggu 4</div>
+            <div class="timeline-week-label">Evaluasi & Penutupan</div>
+          </div>
+          <div class="timeline-spine">
+            <div class="timeline-dot"></div>
+            <div class="timeline-line"></div>
+          </div>
+          <div class="timeline-content">
+            <p class="timeline-title">Evaluasi capaian dan dokumentasi akhir</p>
+            <p class="timeline-desc">Evaluasi capaian kegiatan, dokumentasi akhir, refleksi program, dan penyusunan laporan kegiatan.</p>
           </div>
         </div>
       </div>
     </section>
   </main>
 
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo-wrap">
+          <img class="footer-logo-mark" src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Logo_Universitas_Sumatera_Utara.svg" alt="USU">
+          <div class="footer-brand-name">Tim Pengmas Desa Berdaya</div>
+        </div>
+        <p class="footer-brand-desc">Program Pengabdian Masyarakat mahasiswa Kesehatan Masyarakat USU di Desa Patumbak, Deli Serdang, 2026.</p>
+      </div>
+      <div>
+        <div class="footer-heading">Navigasi</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="program.html">Program</a></li>
 
-  <app-footer></app-footer>
+          <li><a href="galeri.html">Galeri</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="tentang.html">Tentang</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Informasi</div>
+        <ul class="footer-links">
+          <li><a href="#">Universitas Sumatera Utara</a></li>
+          <li><a href="#">Prodi Kesehatan Masyarakat</a></li>
+          <li><a href="#">Desa Patumbak</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Tim Pengmas Desa Berdaya · Universitas Sumatera Utara</p>
+      <p class="footer-copy">Kesehatan Masyarakat FKM USU</p>
+    </div>
+  </footer>
 
-  <script src="assets/js/navbar.js"></script>
-  <script src="assets/js/footer.js"></script>
-  <script src="assets/js/main.js"></script>
+  <script>
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 20); });
+  </script>
 </body>
 </html>

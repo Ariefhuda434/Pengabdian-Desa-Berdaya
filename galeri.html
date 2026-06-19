@@ -31,7 +31,7 @@
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 2rem; height: 72px; display: flex; align-items: center; justify-content: space-between; background: rgba(253,252,248,0.88); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); transition: box-shadow 0.3s; }
     nav.scrolled { box-shadow: var(--shadow-sm); }
     .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .nav-logo-mark { width: 36px; height: 36px; border-radius: 10px; background: var(--green-600); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 18px; color: #fff; }
+    .nav-logo-mark { width: 36px; height: 36px; border-radius: 10px; object-fit: cover; }
     .nav-logo-text { font-size: 15px; font-weight: 600; color: var(--ink); line-height: 1.2; }
     .nav-logo-sub { font-size: 11px; font-weight: 400; color: var(--muted); }
     .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
@@ -104,7 +104,7 @@
     footer { background: var(--ink-soft); color: rgba(255,255,255,0.8); padding: 60px 80px 40px; }
     .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 48px; }
     .footer-logo-wrap { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
-    .footer-logo-mark { width: 36px; height: 36px; border-radius: 10px; background: var(--green-600); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-size: 18px; color: #fff; }
+    .footer-logo-mark { width: 36px; height: 36px; border-radius: 10px; object-fit: cover; }
     .footer-brand-name { font-size: 15px; font-weight: 600; color: #fff; }
     .footer-brand-desc { font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.5); max-width: 280px; }
     .footer-heading { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
@@ -139,21 +139,24 @@
 <body>
   <nav id="navbar">
     <a href="index.html" class="nav-logo">
-      <div class="nav-logo-mark">D</div>
+      <img class="nav-logo-mark" src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Logo_Universitas_Sumatera_Utara.svg" alt="USU">
       <div>
-        <div class="nav-logo-text">Tim Pengmas</div>
-        <div class="nav-logo-sub">Desa Berdaya</div>
+        <div class="nav-logo-text">Desa Berdaya</div>
+        <div class="nav-logo-sub">Pengmas USU 2026</div>
       </div>
     </a>
     <ul class="nav-links">
       <li><a href="index.html">Beranda</a></li>
       <li><a href="program.html">Program</a></li>
-      <li><a href="tim.html">Tim</a></li>
+
       <li><a href="galeri.html" class="active">Galeri</a></li>
       <li><a href="blog.html">Blog</a></li>
       <li><a href="tentang.html">Tentang</a></li>
     </ul>
-    <a class="nav-cta" href="tentang.html">Kontak</a>
+    <a href="galeri.html" class="nav-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      Lihat Galeri
+    </a>
   </nav>
 
   <main>
@@ -191,7 +194,7 @@
 
         <article class="gallery-card" data-week="minggu-1">
           <div class="gallery-card-img-wrap">
-            <img src="assets/img/galeri/minggu-1/kegiatan-1.jpg" alt="Observasi awal bersama masyarakat" onerror="this.src='https://placehold.co/700x500/d4f0d4/2a7a2a?text=Minggu+1+%E2%80%A2+Foto+1'">
+            <img src="assets/img/galeri/minggu-1/kegiatan-1.jpg" alt="Observasi awal bersama masyarakat" onerror="this.src='https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=700&h=500&fit=crop'">
             <span class="gallery-card-week">Minggu 1</span>
           </div>
           <div class="gallery-card-body">
@@ -201,7 +204,7 @@
 
         <article class="gallery-card" data-week="minggu-1">
           <div class="gallery-card-img-wrap">
-            <img src="assets/img/galeri/minggu-1/kegiatan-2.jpg" alt="Koordinasi dengan perangkat desa" onerror="this.src='https://placehold.co/700x500/d4f0d4/2a7a2a?text=Minggu+1+%E2%80%A2+Foto+2'">
+            <img src="assets/img/galeri/minggu-1/kegiatan-2.jpg" alt="Koordinasi dengan perangkat desa" onerror="this.src='https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=700&h=500&fit=crop'">
             <span class="gallery-card-week">Minggu 1</span>
           </div>
           <div class="gallery-card-body">
@@ -211,7 +214,7 @@
 
         <article class="gallery-card" data-week="minggu-1">
           <div class="gallery-card-img-wrap">
-            <img src="assets/img/galeri/minggu-1/kegiatan-3.jpg" alt="Pemetaan kebutuhan lapangan" onerror="this.src='https://placehold.co/700x500/d4f0d4/2a7a2a?text=Minggu+1+%E2%80%A2+Foto+3'">
+            <img src="assets/img/galeri/minggu-1/kegiatan-3.jpg" alt="Pemetaan kebutuhan lapangan" onerror="this.src='https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=700&h=500&fit=crop'">
             <span class="gallery-card-week">Minggu 1</span>
           </div>
           <div class="gallery-card-body">
@@ -221,7 +224,7 @@
 
         <article class="gallery-card" data-week="minggu-2">
           <div class="gallery-card-img-wrap">
-            <img src="assets/img/galeri/minggu-2/kegiatan-1.jpg" alt="Penyuluhan gizi keluarga" onerror="this.src='https://placehold.co/700x500/a8dfa8/1e5c1e?text=Minggu+2+%E2%80%A2+Foto+1'">
+            <img src="assets/img/galeri/minggu-2/kegiatan-1.jpg" alt="Penyuluhan gizi keluarga" onerror="this.src='https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=700&h=500&fit=crop'">
             <span class="gallery-card-week">Minggu 2</span>
           </div>
           <div class="gallery-card-body">
@@ -231,7 +234,7 @@
 
         <article class="gallery-card" data-week="minggu-2">
           <div class="gallery-card-img-wrap">
-            <img src="assets/img/galeri/minggu-2/kegiatan-2.jpg" alt="Edukasi PHBS" onerror="this.src='https://placehold.co/700x500/a8dfa8/1e5c1e?text=Minggu+2+%E2%80%A2+Foto+2'">
+            <img src="assets/img/galeri/minggu-2/kegiatan-2.jpg" alt="Edukasi PHBS" onerror="this.src='https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=700&h=500&fit=crop'">
             <span class="gallery-card-week">Minggu 2</span>
           </div>
           <div class="gallery-card-body">
@@ -241,7 +244,7 @@
 
         <article class="gallery-card" data-week="minggu-2">
           <div class="gallery-card-img-wrap">
-            <img src="assets/img/galeri/minggu-2/kegiatan-3.jpg" alt="Diskusi kelompok masyarakat" onerror="this.src='https://placehold.co/700x500/a8dfa8/1e5c1e?text=Minggu+2+%E2%80%A2+Foto+3'">
+            <img src="assets/img/galeri/minggu-2/kegiatan-3.jpg" alt="Diskusi kelompok masyarakat" onerror="this.src='https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?w=700&h=500&fit=crop'">
             <span class="gallery-card-week">Minggu 2</span>
           </div>
           <div class="gallery-card-body">
@@ -251,7 +254,7 @@
 
         <article class="gallery-card" data-week="minggu-3">
           <div class="gallery-card-img-wrap">
-            <img src="assets/img/galeri/minggu-3/kegiatan-1.jpg" alt="Pelatihan UMKM warga" onerror="this.src='https://placehold.co/700x500/52b852/f0faf0?text=Minggu+3+%E2%80%A2+Foto+1'">
+            <img src="assets/img/galeri/minggu-3/kegiatan-1.jpg" alt="Pelatihan UMKM warga" onerror="this.src='https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=700&h=500&fit=crop'">
             <span class="gallery-card-week">Minggu 3</span>
           </div>
           <div class="gallery-card-body">
@@ -261,7 +264,7 @@
 
         <article class="gallery-card" data-week="minggu-3">
           <div class="gallery-card-img-wrap">
-            <img src="assets/img/galeri/minggu-3/kegiatan-2.jpg" alt="Kegiatan posyandu" onerror="this.src='https://placehold.co/700x500/52b852/f0faf0?text=Minggu+3+%E2%80%A2+Foto+2'">
+            <img src="assets/img/galeri/minggu-3/kegiatan-2.jpg" alt="Kegiatan posyandu" onerror="this.src='https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=700&h=500&fit=crop'">
             <span class="gallery-card-week">Minggu 3</span>
           </div>
           <div class="gallery-card-body">
@@ -271,7 +274,7 @@
 
         <article class="gallery-card" data-week="minggu-3">
           <div class="gallery-card-img-wrap">
-            <img src="assets/img/galeri/minggu-3/kegiatan-3.jpg" alt="Pendampingan kader" onerror="this.src='https://placehold.co/700x500/52b852/f0faf0?text=Minggu+3+%E2%80%A2+Foto+3'">
+            <img src="assets/img/galeri/minggu-3/kegiatan-3.jpg" alt="Pendampingan kader" onerror="this.src='https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=700&h=500&fit=crop'">
             <span class="gallery-card-week">Minggu 3</span>
           </div>
           <div class="gallery-card-body">
@@ -281,7 +284,7 @@
 
         <article class="gallery-card" data-week="minggu-4">
           <div class="gallery-card-img-wrap">
-            <img src="assets/img/galeri/minggu-4/kegiatan-1.jpg" alt="Evaluasi program" onerror="this.src='https://placehold.co/700x500/3a9c3a/f0faf0?text=Minggu+4+%E2%80%A2+Foto+1'">
+            <img src="assets/img/galeri/minggu-4/kegiatan-1.jpg" alt="Evaluasi program" onerror="this.src='https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=700&h=500&fit=crop'">
             <span class="gallery-card-week">Minggu 4</span>
           </div>
           <div class="gallery-card-body">
@@ -291,7 +294,7 @@
 
         <article class="gallery-card" data-week="minggu-4">
           <div class="gallery-card-img-wrap">
-            <img src="assets/img/galeri/minggu-4/kegiatan-2.jpg" alt="Penutupan kegiatan" onerror="this.src='https://placehold.co/700x500/3a9c3a/f0faf0?text=Minggu+4+%E2%80%A2+Foto+2'">
+            <img src="assets/img/galeri/minggu-4/kegiatan-2.jpg" alt="Penutupan kegiatan" onerror="this.src='https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=700&h=500&fit=crop'">
             <span class="gallery-card-week">Minggu 4</span>
           </div>
           <div class="gallery-card-body">
@@ -301,7 +304,7 @@
 
         <article class="gallery-card" data-week="minggu-4">
           <div class="gallery-card-img-wrap">
-            <img src="assets/img/galeri/minggu-4/kegiatan-3.jpg" alt="Dokumentasi akhir tim" onerror="this.src='https://placehold.co/700x500/3a9c3a/f0faf0?text=Minggu+4+%E2%80%A2+Foto+3'">
+            <img src="assets/img/galeri/minggu-4/kegiatan-3.jpg" alt="Dokumentasi akhir tim" onerror="this.src='https://images.unsplash.com/photo-1524178232363-1fb2b075b655?w=700&h=500&fit=crop'">
             <span class="gallery-card-week">Minggu 4</span>
           </div>
           <div class="gallery-card-body">
@@ -318,17 +321,17 @@
     <div class="footer-grid">
       <div>
         <div class="footer-logo-wrap">
-          <div class="footer-logo-mark">D</div>
+          <img class="footer-logo-mark" src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Logo_Universitas_Sumatera_Utara.svg" alt="USU">
           <div class="footer-brand-name">Tim Pengmas Desa Berdaya</div>
         </div>
-        <p class="footer-brand-desc">Program Pengabdian Masyarakat mahasiswa Kesehatan Masyarakat USU di Desa Patumbak, Deli Serdang, 2025.</p>
+        <p class="footer-brand-desc">Program Pengabdian Masyarakat mahasiswa Kesehatan Masyarakat USU di Desa Patumbak, Deli Serdang, 2026.</p>
       </div>
       <div>
         <div class="footer-heading">Navigasi</div>
         <ul class="footer-links">
           <li><a href="index.html">Beranda</a></li>
           <li><a href="program.html">Program</a></li>
-          <li><a href="tim.html">Tim</a></li>
+
           <li><a href="galeri.html">Galeri</a></li>
           <li><a href="blog.html">Blog</a></li>
           <li><a href="tentang.html">Tentang</a></li>
@@ -344,7 +347,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p class="footer-copy">© 2025 Tim Pengmas Desa Berdaya · Universitas Sumatera Utara</p>
+      <p class="footer-copy">© 2026 Tim Pengmas Desa Berdaya · Universitas Sumatera Utara</p>
       <p class="footer-copy">Kesehatan Masyarakat FKM USU</p>
     </div>
   </footer>

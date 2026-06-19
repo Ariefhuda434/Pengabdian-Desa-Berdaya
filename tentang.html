@@ -3,150 +3,327 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
   <title>Tentang Kami | Tim Pengmas Desa Berdaya</title>
-  <meta name="description" content="Website dokumentasi kegiatan Pengabdian Masyarakat Tim Desa Berdaya, Program Studi Kesehatan Masyarakat Universitas Sumatera Utara di Desa Patumbak, Deli Serdang.">
+  <meta name="description" content="Profil Tim Pengmas Desa Berdaya, Program Studi Kesehatan Masyarakat Universitas Sumatera Utara.">
 
-  <link rel="stylesheet" href="assets/css/output.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --green-50: #f0faf0; --green-100: #d4f0d4; --green-200: #a8dfa8;
+      --green-400: #52b852; --green-500: #3a9c3a; --green-600: #2a7a2a;
+      --green-700: #1e5c1e; --green-800: #163d16;
+      --cream: #fdfcf8; --ink: #111a11; --ink-soft: #2c3c2c; --muted: #5a6e5a;
+      --border: rgba(42,122,42,0.12); --border-strong: rgba(42,122,42,0.25);
+      --radius-sm: 8px; --radius-md: 14px; --radius-lg: 24px;
+      --font-display: 'Playfair Display', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+      --shadow-sm: 0 1px 3px rgba(0,0,0,0.06); --shadow-md: 0 4px 16px rgba(0,0,0,0.08); --shadow-lg: 0 12px 40px rgba(0,0,0,0.1);
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--font-body); background: var(--cream); color: var(--ink); line-height: 1.6; overflow-x: hidden; }
+
+    /* NAVBAR */
+   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 0 2rem; height: 72px; display: flex; align-items: center; justify-content: space-between; background: rgba(253,252,248,0.88); backdrop-filter: blur(16px); border-bottom: 1px solid var(--border); transition: box-shadow 0.3s; }
+    nav.scrolled { box-shadow: var(--shadow-sm); }
+    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+    .nav-logo-mark { width: 36px; height: 36px; border-radius: 10px; object-fit: cover; }
+    .nav-logo-text { font-size: 15px; font-weight: 600; color: var(--ink); line-height: 1.2; }
+    .nav-logo-sub { font-size: 11px; font-weight: 400; color: var(--muted); }
+    .nav-links { display: flex; align-items: center; gap: 2px; list-style: none; }
+    .nav-links a { display: block; padding: 8px 16px; border-radius: var(--radius-sm); font-size: 14px; font-weight: 500; color: var(--muted); text-decoration: none; transition: all 0.2s; }
+    .nav-links a:hover { color: var(--ink); background: var(--green-50); }
+    .nav-links a.active { color: var(--green-600); background: var(--green-100); }
+    .nav-cta { display: inline-flex; align-items: center; gap: 6px; padding: 9px 20px; border-radius: var(--radius-md); background: var(--green-600); color: #fff; font-size: 14px; font-weight: 600; text-decoration: none; transition: all 0.2s; }
+    .nav-cta:hover { background: var(--green-700); transform: translateY(-1px); }
+
+    /* PAGE HERO */
+    .page-hero { padding-top: 72px; background: radial-gradient(ellipse 80% 70% at 20% 100%, var(--green-50) 0%, transparent 65%), var(--cream); border-bottom: 1px solid var(--border); }
+    .page-hero-inner { padding: 64px 80px 56px; }
+    .page-eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px 6px 8px; background: var(--green-100); border-radius: 100px; font-size: 12px; font-weight: 600; color: var(--green-700); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 20px; }
+    .page-eyebrow-dot { width: 20px; height: 20px; border-radius: 50%; background: var(--green-500); display: flex; align-items: center; justify-content: center; }
+    .page-eyebrow-dot::after { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #fff; }
+    .page-title { font-family: var(--font-display); font-size: clamp(32px, 4vw, 52px); font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; color: var(--ink); margin-bottom: 16px; }
+    .page-subtitle { font-size: 16px; font-weight: 300; color: var(--muted); max-width: 600px; line-height: 1.75; }
+
+    /* SECTION */
+    .section { padding: 80px 80px; }
+    .section-alt { background: var(--green-50); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+    .section-label { display: inline-flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--green-600); margin-bottom: 16px; }
+    .section-label::before { content: ''; display: block; width: 20px; height: 2px; background: var(--green-500); }
+    .section-title { font-family: var(--font-display); font-size: clamp(26px, 3vw, 40px); font-weight: 700; line-height: 1.2; color: var(--ink); margin-bottom: 48px; }
+
+    /* IDENTITAS */
+    .identitas-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+    .identitas-card {
+      background: var(--green-700); border-radius: var(--radius-lg);
+      padding: 40px; color: #fff;
+    }
+    .identitas-card-label { font-size: 12px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 8px; }
+    .identitas-card-title { font-family: var(--font-display); font-size: 28px; font-weight: 700; margin-bottom: 32px; }
+    .identitas-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 24px; padding: 16px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+    .identitas-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .identitas-key { font-size: 13px; color: rgba(255,255,255,0.55); }
+    .identitas-val { font-size: 14px; font-weight: 600; text-align: right; }
+
+    /* PEMBIMBING */
+    .pembimbing-card {
+      background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg);
+      padding: 40px; display: flex; gap: 32px; align-items: flex-start;
+    }
+    .pembimbing-photo { width: 140px; height: 140px; border-radius: var(--radius-lg); object-fit: cover; flex-shrink: 0; border: 3px solid var(--green-100); }
+    .pembimbing-label { font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--green-600); margin-bottom: 8px; }
+    .pembimbing-name { font-family: var(--font-display); font-size: 24px; font-weight: 700; color: var(--ink); margin-bottom: 16px; }
+    .pembimbing-desc { font-size: 15px; color: var(--muted); line-height: 1.75; font-weight: 300; }
+
+    /* TEAM GRID */
+    .team-header { text-align: center; margin-bottom: 48px; }
+    .team-header .section-title { margin-bottom: 16px; }
+    .team-header p { font-size: 15px; color: var(--muted); font-weight: 300; }
+
+    .team-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+
+    .team-card {
+      background: #fff; border: 1px solid var(--border); border-radius: var(--radius-lg);
+      padding: 28px 20px; text-align: center;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .team-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+
+    .team-photo { width: 100px; height: 100px; border-radius: var(--radius-md); object-fit: cover; margin: 0 auto 16px; display: block; border: 3px solid var(--green-100); }
+    .team-name { font-size: 15px; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+    .team-role { font-size: 12px; font-weight: 600; color: var(--green-600); letter-spacing: 0.04em; text-transform: uppercase; margin-bottom: 10px; }
+    .team-desc { font-size: 13px; color: var(--muted); line-height: 1.6; font-weight: 300; }
+
+    /* FOOTER */
+    footer { background: var(--ink-soft); color: rgba(255,255,255,0.8); padding: 60px 80px 40px; }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 60px; margin-bottom: 48px; }
+    .footer-logo-wrap { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; }
+    .footer-logo-mark { width: 36px; height: 36px; border-radius: 10px; object-fit: cover; }
+    .footer-brand-name { font-size: 15px; font-weight: 600; color: #fff; }
+    .footer-brand-desc { font-size: 14px; line-height: 1.7; color: rgba(255,255,255,0.5); max-width: 280px; }
+    .footer-heading { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.4); margin-bottom: 16px; }
+    .footer-links { list-style: none; }
+    .footer-links li { margin-bottom: 10px; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,0.6); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--green-400); }
+    .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; display: flex; justify-content: space-between; align-items: center; }
+    .footer-copy { font-size: 13px; color: rgba(255,255,255,0.35); }
+
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+    .fade-up { animation: fadeUp 0.7s ease both; }
+    .delay-1 { animation-delay: 0.1s; }
+    .delay-2 { animation-delay: 0.2s; }
+
+    @media (max-width: 1024px) {
+      .page-hero-inner, .section { padding-left: 40px; padding-right: 40px; }
+      .identitas-grid { grid-template-columns: 1fr; }
+      .pembimbing-card { flex-direction: column; }
+      .team-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+    @media (max-width: 640px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .page-hero-inner, .section { padding-left: 20px; padding-right: 20px; }
+      footer { padding: 48px 20px 32px; }
+      .footer-bottom { flex-direction: column; gap: 8px; }
+    }
+  </style>
 </head>
+<body>
 
-<body class="bg-gray-50 text-gray-800">
-  <app-navbar active="tentang"></app-navbar>
+  <nav id="navbar">
+    <a href="index.html" class="nav-logo">
+      <img class="nav-logo-mark" src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Logo_Universitas_Sumatera_Utara.svg" alt="USU">
+      <div>
+        <div class="nav-logo-text">Desa Berdaya</div>
+        <div class="nav-logo-sub">Pengmas USU 2026</div>
+      </div>
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="program.html">Program</a></li>
 
+      <li><a href="galeri.html">Galeri</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="tentang.html" class="active">Tentang</a></li>
+    </ul>
+    <a href="galeri.html" class="nav-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+      Lihat Galeri
+    </a>
+  </nav>
 
   <main>
-    <section class="section-padding bg-gradient-to-br from-primary-50 via-white to-green-50">
-      <div class="container-custom">
-        <span class="badge-soft">Tentang Kami</span>
-        <h1 class="page-title mt-5">Tim Pengmas “Desa Berdaya”</h1>
-        <p class="page-subtitle">
-          Tim mahasiswa Program Studi Kesehatan Masyarakat Universitas Sumatera Utara yang melaksanakan program pengabdian masyarakat di Desa Patumbak, Deli Serdang.
-        </p>
+    <section class="page-hero">
+      <div class="page-hero-inner">
+        <div class="page-eyebrow fade-up">
+          <div class="page-eyebrow-dot"></div>
+          Tentang Kami
+        </div>
+        <h1 class="page-title fade-up delay-1">Tim Pengmas<br><em style="font-style:italic;color:var(--green-600);">"Desa Berdaya"</em></h1>
+        <p class="page-subtitle fade-up delay-2">Tim mahasiswa Program Studi Kesehatan Masyarakat Universitas Sumatera Utara yang melaksanakan program pengabdian masyarakat di Desa Patumbak, Deli Serdang.</p>
       </div>
     </section>
 
-    <section class="section-padding bg-white">
-      <div class="container-custom grid gap-8 md:grid-cols-2">
-        <div class="rounded-[2rem] bg-primary p-8 text-white">
-          <p class="text-sm font-semibold text-green-100">Profil Kegiatan</p>
-          <h2 class="mt-3 text-3xl font-extrabold">Identitas Program</h2>
-          <div class="mt-8 space-y-5 text-sm">
-            <div class="flex justify-between gap-6 border-b border-white/15 pb-4">
-              <span class="text-green-100">Nama Tim</span>
-              <strong>Tim Pengmas “Desa Berdaya”</strong>
+    <!-- IDENTITAS & PEMBIMBING -->
+    <section class="section">
+      <div class="section-label">Identitas Program</div>
+      <div class="identitas-grid">
+        <!-- Identitas Card -->
+        <div class="identitas-card">
+          <p class="identitas-card-label">Profil Kegiatan</p>
+          <h2 class="identitas-card-title">Identitas Program</h2>
+          <div>
+            <div class="identitas-row">
+              <span class="identitas-key">Nama Tim</span>
+              <strong class="identitas-val">Tim Pengmas "Desa Berdaya"</strong>
             </div>
-            <div class="flex justify-between gap-6 border-b border-white/15 pb-4">
-              <span class="text-green-100">Institusi</span>
-              <strong>Universitas Sumatera Utara</strong>
+            <div class="identitas-row">
+              <span class="identitas-key">Institusi</span>
+              <strong class="identitas-val">Universitas Sumatera Utara</strong>
             </div>
-            <div class="flex justify-between gap-6 border-b border-white/15 pb-4">
-              <span class="text-green-100">Program Studi</span>
-              <strong>Kesehatan Masyarakat</strong>
+            <div class="identitas-row">
+              <span class="identitas-key">Program Studi</span>
+              <strong class="identitas-val">Kesehatan Masyarakat</strong>
             </div>
-            <div class="flex justify-between gap-6 border-b border-white/15 pb-4">
-              <span class="text-green-100">Lokasi</span>
-              <strong>Desa Patumbak, Deli Serdang</strong>
+            <div class="identitas-row">
+              <span class="identitas-key">Lokasi</span>
+              <strong class="identitas-val">Desa Patumbak, Deli Serdang</strong>
             </div>
-            <div class="flex justify-between gap-6">
-              <span class="text-green-100">Periode</span>
-              <strong>Juli – Agustus 2025</strong>
+            <div class="identitas-row">
+              <span class="identitas-key">Periode</span>
+              <strong class="identitas-val">Juli – Agustus 2026</strong>
+            </div>
+            <div class="identitas-row">
+              <span class="identitas-key">Jumlah Anggota</span>
+              <strong class="identitas-val">8 orang</strong>
             </div>
           </div>
         </div>
 
-        <div class="card-soft">
-          <div class="flex flex-col gap-6 sm:flex-row sm:items-center">
-            <img src="assets/img/tim/dosen-pembimbing.jpg" alt="Foto dosen pembimbing" class="h-40 w-40 rounded-3xl object-cover ring-4 ring-primary-50" onerror="this.src='https://placehold.co/400x400/e8f5e9/2e7d32?text=Dosen'">
-            <div>
-              <p class="text-sm font-semibold text-primary">Dosen Pembimbing</p>
-              <h2 class="mt-2 text-2xl font-extrabold text-gray-950">Dr. Rina Hasibuan, M.Kes</h2>
-              <p class="mt-4 leading-7 text-gray-600">
-                Membimbing pelaksanaan kegiatan pengabdian masyarakat, mulai dari perencanaan, koordinasi program, pelaksanaan lapangan, hingga penyusunan laporan akhir.
-              </p>
-            </div>
+        <!-- Pembimbing -->
+        <div class="pembimbing-card">
+          <img src="assets/img/tim/dosen-pembimbing.jpg" alt="Foto dosen pembimbing" class="pembimbing-photo" onerror="this.src='https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop'">
+          <div>
+            <p class="pembimbing-label">Dosen Pembimbing</p>
+            <h2 class="pembimbing-name">Dr. Rina Hasibuan, M.Kes</h2>
+            <p class="pembimbing-desc">Membimbing pelaksanaan kegiatan pengabdian masyarakat, mulai dari perencanaan, koordinasi program, pelaksanaan lapangan, hingga penyusunan laporan akhir.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section-padding bg-gray-50">
-      <div class="container-custom">
-        <div class="mb-10 text-center">
-          <span class="badge-soft">Anggota Tim</span>
-          <h2 class="mt-5 text-3xl font-extrabold text-gray-950 md:text-4xl">Profil 8 Anggota Tim</h2>
-          <p class="mx-auto mt-4 max-w-2xl leading-7 text-gray-600">
-            Bagian ini dapat diganti dengan nama, peran, dan biodata final dari setiap anggota.
-          </p>
-        </div>
+    <!-- TEAM -->
+    <section class="section section-alt">
+      <div class="team-header">
+        <div class="section-label" style="justify-content:center;">Anggota Tim</div>
+        <h2 class="section-title" style="text-align:center;max-width:500px;margin:0 auto 16px;">Profil 8 Anggota Tim</h2>
+        <p>Bagian ini dapat diganti dengan nama, peran, dan biodata final dari setiap anggota.</p>
+      </div>
 
-        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          
-          <article class="card-soft text-center">
-            <img src="assets/img/tim/anggota-1.jpg" alt="Foto anggota 1" class="mx-auto h-32 w-32 rounded-3xl object-cover ring-4 ring-primary-50" onerror="this.src='https://placehold.co/300x300/e8f5e9/2e7d32?text=Anggota+1'">
-            <h3 class="mt-5 text-lg font-bold text-gray-950">Nama Anggota 1</h3>
-            <p class="mt-1 text-sm font-semibold text-primary">Ketua Tim</p>
-            <p class="mt-3 text-sm leading-6 text-gray-600">Deskripsi singkat anggota tim dapat diisi sesuai biodata final.</p>
-          </article>
+      <div class="team-grid">
+        <article class="team-card">
+          <img src="assets/img/tim/anggota-1.jpg" alt="Anggota 1" class="team-photo" onerror="this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop'">
+          <p class="team-name">Nama Anggota 1</p>
+          <p class="team-role">Ketua Tim</p>
+          <p class="team-desc">Deskripsi singkat anggota tim dapat diisi sesuai biodata final.</p>
+        </article>
 
-          <article class="card-soft text-center">
-            <img src="assets/img/tim/anggota-2.jpg" alt="Foto anggota 2" class="mx-auto h-32 w-32 rounded-3xl object-cover ring-4 ring-primary-50" onerror="this.src='https://placehold.co/300x300/e8f5e9/2e7d32?text=Anggota+2'">
-            <h3 class="mt-5 text-lg font-bold text-gray-950">Nama Anggota 2</h3>
-            <p class="mt-1 text-sm font-semibold text-primary">Sekretaris</p>
-            <p class="mt-3 text-sm leading-6 text-gray-600">Deskripsi singkat anggota tim dapat diisi sesuai biodata final.</p>
-          </article>
+        <article class="team-card">
+          <img src="assets/img/tim/anggota-2.jpg" alt="Anggota 2" class="team-photo" onerror="this.src='https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=300&h=300&fit=crop'">
+          <p class="team-name">Nama Anggota 2</p>
+          <p class="team-role">Sekretaris</p>
+          <p class="team-desc">Deskripsi singkat anggota tim dapat diisi sesuai biodata final.</p>
+        </article>
 
-          <article class="card-soft text-center">
-            <img src="assets/img/tim/anggota-3.jpg" alt="Foto anggota 3" class="mx-auto h-32 w-32 rounded-3xl object-cover ring-4 ring-primary-50" onerror="this.src='https://placehold.co/300x300/e8f5e9/2e7d32?text=Anggota+3'">
-            <h3 class="mt-5 text-lg font-bold text-gray-950">Nama Anggota 3</h3>
-            <p class="mt-1 text-sm font-semibold text-primary">Bendahara</p>
-            <p class="mt-3 text-sm leading-6 text-gray-600">Deskripsi singkat anggota tim dapat diisi sesuai biodata final.</p>
-          </article>
+        <article class="team-card">
+          <img src="assets/img/tim/anggota-3.jpg" alt="Anggota 3" class="team-photo" onerror="this.src='https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=300&h=300&fit=crop'">
+          <p class="team-name">Nama Anggota 3</p>
+          <p class="team-role">Bendahara</p>
+          <p class="team-desc">Deskripsi singkat anggota tim dapat diisi sesuai biodata final.</p>
+        </article>
 
-          <article class="card-soft text-center">
-            <img src="assets/img/tim/anggota-4.jpg" alt="Foto anggota 4" class="mx-auto h-32 w-32 rounded-3xl object-cover ring-4 ring-primary-50" onerror="this.src='https://placehold.co/300x300/e8f5e9/2e7d32?text=Anggota+4'">
-            <h3 class="mt-5 text-lg font-bold text-gray-950">Nama Anggota 4</h3>
-            <p class="mt-1 text-sm font-semibold text-primary">Koordinator Program</p>
-            <p class="mt-3 text-sm leading-6 text-gray-600">Deskripsi singkat anggota tim dapat diisi sesuai biodata final.</p>
-          </article>
+        <article class="team-card">
+          <img src="assets/img/tim/anggota-4.jpg" alt="Anggota 4" class="team-photo" onerror="this.src='https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=300&h=300&fit=crop'">
+          <p class="team-name">Nama Anggota 4</p>
+          <p class="team-role">Koordinator Program</p>
+          <p class="team-desc">Deskripsi singkat anggota tim dapat diisi sesuai biodata final.</p>
+        </article>
 
-          <article class="card-soft text-center">
-            <img src="assets/img/tim/anggota-5.jpg" alt="Foto anggota 5" class="mx-auto h-32 w-32 rounded-3xl object-cover ring-4 ring-primary-50" onerror="this.src='https://placehold.co/300x300/e8f5e9/2e7d32?text=Anggota+5'">
-            <h3 class="mt-5 text-lg font-bold text-gray-950">Nama Anggota 5</h3>
-            <p class="mt-1 text-sm font-semibold text-primary">Koordinator Lapangan</p>
-            <p class="mt-3 text-sm leading-6 text-gray-600">Deskripsi singkat anggota tim dapat diisi sesuai biodata final.</p>
-          </article>
+        <article class="team-card">
+          <img src="assets/img/tim/anggota-5.jpg" alt="Anggota 5" class="team-photo" onerror="this.src='https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=300&h=300&fit=crop'">
+          <p class="team-name">Nama Anggota 5</p>
+          <p class="team-role">Koordinator Lapangan</p>
+          <p class="team-desc">Deskripsi singkat anggota tim dapat diisi sesuai biodata final.</p>
+        </article>
 
-          <article class="card-soft text-center">
-            <img src="assets/img/tim/anggota-6.jpg" alt="Foto anggota 6" class="mx-auto h-32 w-32 rounded-3xl object-cover ring-4 ring-primary-50" onerror="this.src='https://placehold.co/300x300/e8f5e9/2e7d32?text=Anggota+6'">
-            <h3 class="mt-5 text-lg font-bold text-gray-950">Nama Anggota 6</h3>
-            <p class="mt-1 text-sm font-semibold text-primary">Dokumentasi</p>
-            <p class="mt-3 text-sm leading-6 text-gray-600">Deskripsi singkat anggota tim dapat diisi sesuai biodata final.</p>
-          </article>
+        <article class="team-card">
+          <img src="assets/img/tim/anggota-6.jpg" alt="Anggota 6" class="team-photo" onerror="this.src='https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=300&h=300&fit=crop'">
+          <p class="team-name">Nama Anggota 6</p>
+          <p class="team-role">Dokumentasi</p>
+          <p class="team-desc">Deskripsi singkat anggota tim dapat diisi sesuai biodata final.</p>
+        </article>
 
-          <article class="card-soft text-center">
-            <img src="assets/img/tim/anggota-7.jpg" alt="Foto anggota 7" class="mx-auto h-32 w-32 rounded-3xl object-cover ring-4 ring-primary-50" onerror="this.src='https://placehold.co/300x300/e8f5e9/2e7d32?text=Anggota+7'">
-            <h3 class="mt-5 text-lg font-bold text-gray-950">Nama Anggota 7</h3>
-            <p class="mt-1 text-sm font-semibold text-primary">Publikasi</p>
-            <p class="mt-3 text-sm leading-6 text-gray-600">Deskripsi singkat anggota tim dapat diisi sesuai biodata final.</p>
-          </article>
+        <article class="team-card">
+          <img src="assets/img/tim/anggota-7.jpg" alt="Anggota 7" class="team-photo" onerror="this.src='https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&h=300&fit=crop'">
+          <p class="team-name">Nama Anggota 7</p>
+          <p class="team-role">Publikasi</p>
+          <p class="team-desc">Deskripsi singkat anggota tim dapat diisi sesuai biodata final.</p>
+        </article>
 
-          <article class="card-soft text-center">
-            <img src="assets/img/tim/anggota-8.jpg" alt="Foto anggota 8" class="mx-auto h-32 w-32 rounded-3xl object-cover ring-4 ring-primary-50" onerror="this.src='https://placehold.co/300x300/e8f5e9/2e7d32?text=Anggota+8'">
-            <h3 class="mt-5 text-lg font-bold text-gray-950">Nama Anggota 8</h3>
-            <p class="mt-1 text-sm font-semibold text-primary">Humas</p>
-            <p class="mt-3 text-sm leading-6 text-gray-600">Deskripsi singkat anggota tim dapat diisi sesuai biodata final.</p>
-          </article>
-
-        </div>
+        <article class="team-card">
+          <img src="assets/img/tim/anggota-8.jpg" alt="Anggota 8" class="team-photo" onerror="this.src='https://images.unsplash.com/photo-1554151228-14d9def656e4?w=300&h=300&fit=crop'">
+          <p class="team-name">Nama Anggota 8</p>
+          <p class="team-role">Humas</p>
+          <p class="team-desc">Deskripsi singkat anggota tim dapat diisi sesuai biodata final.</p>
+        </article>
       </div>
     </section>
   </main>
 
+  <footer>
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo-wrap">
+          <img class="footer-logo-mark" src="https://upload.wikimedia.org/wikipedia/commons/f/f0/Logo_Universitas_Sumatera_Utara.svg" alt="USU">
+          <div class="footer-brand-name">Tim Pengmas Desa Berdaya</div>
+        </div>
+        <p class="footer-brand-desc">Program Pengabdian Masyarakat mahasiswa Kesehatan Masyarakat USU di Desa Patumbak, Deli Serdang, 2026.</p>
+      </div>
+      <div>
+        <div class="footer-heading">Navigasi</div>
+        <ul class="footer-links">
+          <li><a href="index.html">Beranda</a></li>
+          <li><a href="program.html">Program</a></li>
 
-  <app-footer></app-footer>
+          <li><a href="galeri.html">Galeri</a></li>
+          <li><a href="blog.html">Blog</a></li>
+          <li><a href="tentang.html">Tentang</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-heading">Informasi</div>
+        <ul class="footer-links">
+          <li><a href="#">Universitas Sumatera Utara</a></li>
+          <li><a href="#">Prodi Kesehatan Masyarakat</a></li>
+          <li><a href="#">Desa Patumbak</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="footer-copy">© 2026 Tim Pengmas Desa Berdaya · Universitas Sumatera Utara</p>
+      <p class="footer-copy">Kesehatan Masyarakat FKM USU</p>
+    </div>
+  </footer>
 
-  <script src="assets/js/navbar.js"></script>
-  <script src="assets/js/footer.js"></script>
-  <script src="assets/js/main.js"></script>
+  <script>
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => { nav.classList.toggle('scrolled', window.scrollY > 20); });
+  </script>
 </body>
 </html>
